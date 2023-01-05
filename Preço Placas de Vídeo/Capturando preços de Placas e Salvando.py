@@ -32,7 +32,7 @@ for i in range(1, ultima_pagina+1):
         
         dic_produtos['marca'].append(marca)
         dic_produtos['preco'].append(preco)
-print(url_pag)
+
 
 df = pd.DataFrame(dic_produtos)
 df.to_csv('C:\\Users\\Luis Felipe\\Documents\\CSV Placa de Vídeos\\preco_cadeira.csv', encoding='utf-8', sep=';')
