@@ -38,3 +38,9 @@ for i in range(1, ultima_pagina+1):
 
 df = pd.DataFrame(dic_produtos)
 df.to_csv('C:\\Users\\Luis Felipe\\Documents\\CSV Placa de Vídeos\\preco_cadeira.csv', encoding='utf-8', sep=';')
+
+xls = input('C:\\Users\\Luis Felipe\\Documents\\CSV Placa de Vídeos\\preco_cadeira.csv')
+read_file = pd.read_csv(xls)
+teclado = xls.replace("csv","xlsx")
+read_file.to_excel(xls, index = None, header=True)
+print("Arquivo convertido!")
