@@ -16,7 +16,7 @@ qtd = qtd_itens[:index]
 
 ultima_pagina = math.ceil(int(qtd) / 36)
 
-dic_produtos = {'marca':[], 'preco':[]}
+dic_produtos = {'site':[], 'marca':[], 'preco':[]}
 
 for i in range(1, ultima_pagina+1):
     url_pag = f'https://www.kabum.com.br/hardware/placa-de-video-vga?page_number={i}&page_size=20&facet_filters=&sort=most_searched'
@@ -25,11 +25,13 @@ for i in range(1, ultima_pagina+1):
     produtos = soup.find_all('div', class_=re.compile('productCard'))
     
     for produto in produtos:
+        site = 'Kabum'
         marca = produto.find('span', class_=re.compile('nameCard')).get_text().strip()
         preco = produto.find('span', class_=re.compile('priceCard')).get_text().strip()
         
         print(marca, preco)
         
+        dic_produtos['site'].append(site)
         dic_produtos['marca'].append(marca)
         dic_produtos['preco'].append(preco)
 
